@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Which ACL artist are you...</title>
+<style>
+body {
+background-image: url("background.jpg");
+font-family: Helvetica;
+}
+#main {
+width: 60%;
+border: 1px linen;
+margin: auto;
+padding: 10px;
+background-color: white;
+border-radius: 10px;
+}
+#header {
+margin-top: 0;
+border: 2px linen;
+padding: 5px;
+height: 250px;
+background-color: linen;
+}
+
+h1 {
+text-align:center;
+
+</style>
+</head>
+
+<body>
+<div id="main">
+<div id="header"><h1>Which ACL artist are you?</h1></div>
+<table>
+<form  id="form1" action=" "/>
+<tr><td>
+<p><h2>Pick a day.</h2></td><br><td>
+<input type="radio" name = "day" id="friday" value="1" /> Friday</td><td>
+<input type="radio" name = "day" id="saturday" value="2" /> Saturday</td><td>
+<input type="radio" name = "day" id="sunday" value="3" /> Sunday
+</td></tr>
+<tr><td>
+<p><h2>What's your current mood?</h2></p><br></td><td>
+<input type="radio" name="mood" id="emo" value="1" /> Unstable</td><td>
+<input type="radio" name="mood" id="happy" value="2" /> Happy</td><td>
+<input type="radio" name="mood" id="rebel" value="3" /> Rebellious
+</td></tr>
+<tr><td>
+<p><h2>Pick a place.</h2></p><br></td><td>
+<input type="radio" name="place" id="nyc" value="1" /> New York</td><td>
+<input type="radio" name="place" id="texas" value="2" /> Texas</td><td>
+<input type="radio" name="place" id="england" value="3" /> England</td>
+</tr>
+<tr><td>
+<br />
+<input type="submit" value="Submit">
+</td></tr>
+</form>
+</table>
+<p id="answer"></p>
+<p id="answer2"></p>
+</div>
+<script>
+   dayvar = ['friday', 'saturday', 'sunday'];
+   moodvar = ['emo', 'happy', 'rebel'];
+   placevar = ['nyc', 'texas', 'england'];
+    
+	   document.getElementById("form1").onsubmit=function() {
+	   for(i=0; i<dayvar.length; i++) {
+	   if (document.getElementById(dayvar[i]).checked) {
+	   day = document.getElementById(dayvar[i]).value 
+	   }
+	   }//end for
+	   
+	   for(i=0; i<moodvar.length; i++) {
+	   if (document.getElementById(moodvar[i]).checked) {
+	   mood = document.getElementById(moodvar[i]).value 
+	   }
+	   }//end for
+	   
+	   for(i=0; i<placevar.length; i++) {
+	   if (document.getElementById(placevar[i]).checked) {
+	   place = document.getElementById(placevar[i]).value 
+	   }
+	   }//end for
+	   
+	   total = parseInt(day) + parseInt(mood) + parseInt(place);
+	   document.getElementById("answer").innerHTML = total;
+	   
+	   if(total < 4) {
+document.getElementById("answer2").innerHTML = "You got Brand New! Recently broken hearted? Is your inner-angst dying to get out? Well, head over to the Homeaway Stage at 5 PM on Friday.";
+	
+}
+   if(total >=4 && total < 7) {
+document.getElementById("answer2").innerHTML = "You got Leon Bridges! Catch this new-age, Motown inspired crooner on Friday at 4 PM at the Honda Stage!";
+}
+	
+	if(total >=7) {
+document.getElementById("answer2").innerHTML = "You got B&#216RNS! This up and coming artist will get your feet moving with his groovy, electric sound. The dance party begins at 2:30 PM at the Honda Stage on Sunday!";
+}   
+	
+	   
+	   return false; // required to not refresh the page; just leave this here
+	   }// end the submit function
+	
+   
+</script>
+
+
+
+</body>
+</html>
